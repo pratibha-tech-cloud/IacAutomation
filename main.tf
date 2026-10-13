@@ -48,3 +48,30 @@ resource "azurerm_linux_virtual_machine" "vmblock" {
     version   = "latest"
   }
 }
+resource "azurerm_public_ip" "pipblock" {
+  name = "rg-new-pip"
+  resource_group_name = azurerm_resource_group.rgblock.name
+  location = azurerm_resource_group.rgblock.location
+  allocation_method = "Static"
+
+  tags = { 
+    environment = "Production"
+  }
+}
+resource "azurerm_network_security_group" "nsgblock" {
+  name = "rg-new-nsg"
+  resource_group_name = azurerm_resource_group.rgblock.name
+  location = azurerm_resource_group.rgblock.location
+
+  security_rule {
+    name = "rule123"
+    priority = "100"
+    direction = "Inbound"
+    access = "Allow"
+    protocol = "Tcp"
+    source_port_range = "*"
+    destination_port_range = "*"
+    source_address_prefix = "*"
+    destination_address_prefix = "*"
+  }
+}
