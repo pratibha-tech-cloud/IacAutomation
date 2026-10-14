@@ -2,6 +2,10 @@ resource "azurerm_resource_group" "rgblock" {
   name = "rg-new-devops"
   location = "Central India"
 }
+resource "azurerm_resource_group" "rgblock2" {
+  name = "rg-new-devops2"
+  location = "Central India"
+}
 
 resource "azurerm_virtual_network" "vnetblock" {
   name = "rg-new-vnet"
