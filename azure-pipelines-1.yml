@@ -9,6 +9,14 @@ trigger:
 
 pool:  Evening
 stages:
+  - stage:  Tfsec
+    jobs:
+      - job: 
+        steps:
+        - task: tfsec@1
+          inputs:
+            version: 'v1.26.0'
+            dir: '(System.DefaultWorkingDirectory)/'
   - stage: TerraformIaC
     jobs:
       - job: TerraformJob
