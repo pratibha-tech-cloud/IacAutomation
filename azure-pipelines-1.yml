@@ -5,6 +5,7 @@
 name: TestPipline
 trigger:
 - main
+- feature/*
 
 pool:  Evening
 stages:
