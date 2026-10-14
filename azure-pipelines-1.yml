@@ -13,10 +13,10 @@ stages:
     jobs:
       - job: 
         steps:
-        - task: tfsec@1
+        - task: Bash@3
           inputs:
-            version: 'v1.26.0'
-            dir: '(System.DefaultWorkingDirectory)/'
+            targetType: 'inline'
+            script: 'tfsec (System.DefaultWorkingDirectory)/'
   - stage: TerraformIaC
     jobs:
       - job: TerraformJob
